@@ -1,0 +1,24 @@
+# TracProxyDav 
+A proxy dav with control access using trac permissions.
+
+# Licence
+See proxydav/COPYING
+
+# Instalation 
+* download 
+* python setup.py install
+* edit /etc/httpd/conf.d/gitdav.conf
+
+ Alias /git /var/www/repo_git
+ <Directory "/var/www/repo_git">
+     Dav On
+     Order allow,deny
+     Allow from 127.0.0.0/8
+ </Directory>
+
+* enable TracProxyDav on Admin | Plugins
+* add on trac.ini
+ [proxydav]
+ url = http://127.0.0.1/git
+
+*enjoy.
